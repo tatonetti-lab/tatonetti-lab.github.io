@@ -1,0 +1,137 @@
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+
+.tlab-resource-box {
+	border-left: 1px solid black;
+	padding-left: 5px;
+	margin: 0 0 2em 0;
+}
+
+.tlab-publication-box {
+	border-left: 0;
+}
+
+.tlab-resource h2 {
+	margin: 0;
+}
+
+.csl-entry {
+	display: inline;
+}
+.citation-link {
+	display: inline;
+	float: right;
+}
+
+.tlab-citation {
+	font-size: 0.9em;
+	margin-bottom: 2em;
+}
+
+.tlab-resource-box h3 {
+	font-size: 1.0em;
+}
+
+.hentry {
+	margin: 0 0 1em 0;
+}
+.tlab-resource-tags {
+	margin: 0 0 1em 0;
+}
+.tlab-resource-tag {
+	font-size: 0.8em;
+	margin-right: 0.5em;
+}
+
+.tlab-resource-tag a {
+	font-weight: normal;
+}
+
+.badge {
+	float: left;
+	margin-right: 1em;
+}
+.tlab-publication-box p {
+	font-size: 0.8em;
+	margin-left: 110px;
+}
+.tlab-publication-box p img {
+	width: 100px;
+	float: left;
+	margin-left: -110px;
+}
+
+.student {
+	min-height: 110px;
+	width: 450px;
+	max-width: 100%;
+	float: left;
+	padding-right: 20px;
+	margin-bottom: 20px;
+}
+.pi {
+	margin-bottom: 4em;
+}
+.person, .person p {
+	font-size: 0.9em;
+}
+.person .details {
+	margin-left: 110px;
+}
+.pi .details {
+	margin-left: 160px;
+}
+.person img {
+	float: left;
+}
+.person .name {
+	font-size: 1em;
+	font-weight: bold;
+}
+.current-members {
+	clear: both;
+}
+
+.former-members img {
+	display: none;
+}
+.former-members .person .details {
+	margin-left: 10px;
+}
+.former-members .student {
+	width: 300px;
+	max-width: 40%;
+	min-height: 100px;
+
+}
+
+.news {
+	font-size: 0.9em;
+}
+.news h3 {
+	margin-bottom: 0;
+}
+.news .date {
+	font-size: 0.9em;
+	font-style: italic;
+	margin-bottom: 1em;
+}
+
+.site-footer-follow {
+    display: inline;
+    float: right;
+}
+
+.site-footer-follow img {
+    width: 15px;
+}
