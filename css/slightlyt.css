@@ -1483,7 +1483,7 @@ img.logo {
 @media screen and (min-width: 37.5em) {
     .site-header-col {
         justify-content: flex-start;
-        background-image: url(img/lea_network.png);
+        background-image: url(images/lea_network.png);
         background-repeat: no-repeat;
         background-size: 400px;
         background-position-y: -10px;
