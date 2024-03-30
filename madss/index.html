@@ -1,0 +1,171 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>Tatonetti Lab at Columbia University Medical Center</title>
+  <script type="text/javascript" src="uglipop.js"></script>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+  </script>
+  <script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  <style type="text/css">
+  .formula {
+    font-family: "Times New Roman";
+    font-style: italic;
+  }
+
+  .modalOverlay {
+  border-radius: 10px;
+  background-color: white;
+  width: 425px;
+  height: 350px;
+  padding: 10px;
+  -webkit-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
+  /*-webkit-box-shadow: 0px 0px 39px 12px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 39px 12px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 39px 12px rgba(0,0,0,0.75);*/
+  }
+
+  .modalOverlayBig {
+  border-radius: 10px;
+  background-color: white;
+  width: 525px;
+  height: 375px;
+  padding: 10px;
+  -webkit-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
+  }
+
+  .button-blue {
+  color: #FFF;
+  padding: 5px 10px;
+  letter-spacing: 1px;
+  background: #448FD8;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  text-align: center;
+  position: absolute;
+  bottom: 10px;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  }
+  </style>
+  <script type="text/javascript">
+    var modalTrigger = function(metric){
+        uglipop({class:'modalOverlay',source:'div',content: metric});}
+    var modalTriggerBig = function(metric){
+        uglipop({class:'modalOverlayBig',source:'div',content: metric});}
+
+    var rem = function(){
+        remove();
+      }
+  </script>
+</head>
+<body>
+  <div id="mfpt" style="display:none;">
+        <h3>Adapted mean first passage time (MFPT)</h3>
+        <p>Measurement of the proximity of node $i$ to node $j$</p>
+        $$S_{j}=\dfrac {\dfrac {\sum\limits_{i\not \subset C}\big \langle T_{ij}\big \rangle }{\left| C'\right| }-\dfrac {\sum\limits_{i\subset C}\big \langle T_{ij}\big \rangle }{\left| C\right| }}{\dfrac {\sum\limits_{i}\big \langle T_{ij}\big \rangle }{\left| C\right| +\left| C'\right| }}$$
+        <p>where $T_{ij}$ refers to the average number of steps a random walker takes to reach node $j$ beginning at node $i$.</p>
+        <button class="button-blue" onclick="rem();">Close</button>
+  </div>
+  <div id="bc" style="display:none;">
+        <h3>Adapted betweenness centrality (BC)</h3>
+        <p>Measurement of the fraction of shortest paths containing a node of interest $j$.</p>
+        $$S_{j}=\dfrac {\dfrac {\sum\limits_{s\subset C}\dfrac {\sigma \left( s,t\mid  j\right) }{\sigma \left( s,t\right) }}{\left( \left| C\right| -\mathbb1_C \begin{cases}1 \textrm{ if } j\subset C \\0 \textrm{ if } j\not \subset C\end{cases} \right) }-\dfrac {\sum\limits_{s\not \subset C}\dfrac {\sigma \left( s,t\mid j\right) }{\sigma \left( s,t\right) }}{\left( \left| C'\right| -\mathbb1_{C'} \begin{cases}0 \textrm{ if } j\subset C \\1 \textrm{ if } j\not \subset C\end{cases} \right) }}{\dfrac {\sum\limits_{s}\dfrac {\sigma \left( s,t\mid j\right) }{\sigma \left( s,t\right) }}{\left( \left| C\right| +\left| C'\right| - 1\right) }}$$
+        <p>where $\sigma\left(s, t\right)$ is the number of shortest paths (smallest number of edges) between $s$ and $t$, and $\sigma \left( s,t\mid j\right)$ is the number of shortest paths between $s$ and $t$ passing through $j$.</p> 
+        <button class="button-blue" onclick="rem();">Close</button>
+  </div>
+  <div id="sn" style="display:none;">
+        <h3>Adapted shared neighbors (SN)</h3>
+        <p>Measurement of the fraction of shared adjacent nodes (Tanimoto coefficient, $T_c$) between two nodes of interest</p>
+        $$S_{j}=\dfrac {\dfrac {\sum\limits_{i\subset C}T_c\left( i,j\right) }{\left| C\right| }-\dfrac {\sum\limits_{i\not \subset C}T_c\left( i,j\right) }{\left| C'\right| }}{\dfrac {\sum\limits_{i}T_c\left( i,j\right) }{\left| C\right| +\left| C'\right| }}
+        =\dfrac {\dfrac {\sum\limits_{i\subset C}\dfrac {\left| n_i \cap n_j\right|}{\left| n_i \cup n_j\right| }}{\left| C\right| }-\dfrac {\sum\limits_{i\not \subset C}\dfrac {\left| n_i \cap n_j\right|}{\left| n_i \cup n_j\right| }}{\left| C'\right| }}{\dfrac {\sum\limits_{i}\dfrac {\left| n_i \cap n_j\right|}{\left| n_i \cup n_j\right| }}{\left| C\right| +\left| C'\right| }}$$
+        <p>where $n_i\textrm{ = \{neighbors of }i\}$ and $n_j = \{\textrm{neighbors of } j\}$.</p> 
+        <button class="button-blue" onclick="rem();">Close</button>
+  </div>
+  <div id="isp" style="display:none;">
+        <h3>Adapted inverse shortest path (ISP)</h3>
+        <p>Measurement of the shortest path length connecting two nodes of interest</p>
+        $$S_{j}=\dfrac {\dfrac {\sum\limits_{i\subset C}\dfrac {1}{\ell_s\left( i,j\right) }}{\left| C\right| }-\dfrac {\sum\limits_{i\not \subset C}\dfrac {1}{\ell_s\left( i,j\right) }}{\left| C'\right| }}{\dfrac {\sum\limits_{i}\dfrac {1}{\ell_s\left( i,j\right) }}{\left| C\right| +\left| C'\right| }}$$
+        <p>where $\ell_s\left( i,j\right)$ is the smallest number of edges between $i$ and $j$.</p> 
+        <button class="button-blue" onclick="rem();">Close</button>
+  </div>
+
+  <div id="page">
+    
+    <div id="header">
+      <a href="https://github.com/tal-baum/MADSS"><img class="logo" src="images/madss_mi.png" height="120px"/></a>
+      <div id="header-content">
+          <img class="tlab-logo" src="http://www.tatonettilab.org/images/tlab-logo-large.png" height="50px"/>
+          <div>
+              <h1>Tatonetti Lab</h1>
+              <h3>at Columbia University Medical Center</h3>
+          </div>
+      </div>
+    </div>
+    
+    
+    <div id="bar"></div>
+    
+    <div id="content">
+      <ul id="menu">
+        <li><a href="http://www.tatonettilab.org/index.html">Research</a></li>
+        <li><a href="http://www.tatonettilab.org/courses.html">Courses</a></li>
+        <li><a href="http://www.tatonettilab.org/resources.html">Resources</a></li>
+        <li><a href="http://www.tatonettilab.org/positions.html">Positions</a></li>
+        <li><a href="http://www.tatonettilab.org/pubs.html">Publications</a></li>
+        <li><a href="http://www.tatonettilab.org/people.html">People</a></li>
+        <li><a href="http://www.tatonettilab.org/internal/">&infin;</a></li>
+      </ul>
+      
+      <h2>MADSS: Modular Assembly of Drug Safety Subnetworks</h2>
+      <p>
+        Source code available on <a href="https://github.com/tal-baum/MADSS">GitHub</a>.
+      </p>
+
+      <p>
+        <img src="images/madss_figure.png" width="250px" align="right"/>
+        MADSS (Modular Assembly of Drug Safety Subnetworks) is a network analysis framework that predicts drug safety by scoring every protein in a human protein-protein interaction network (interactome) on its connectivity to a "seed" set of proteins with a genetic link to a phenotype of interest (e.g. disease, adverse drug reaction). Proteins receiving high connectivity scores constitute a neighborhood within the interactome; drugs targeting proteins within this neighborhood are predicted to be involved in mediating the phenotype of interest.
+      </p>
+
+      <p>
+        To build these neighborhoods, MADSS uses four adapted pairwise connectivity functions to score every protein in the interactome on its connectivity to the seed set (click for formula):
+        <ul>
+        <li><a id="mfptLink" style="text-decoration: none" title="MFPT Formula" href="#" onclick="modalTrigger('mfpt');return false;">Mean first passage time (MFPT)</a></li>
+        <li><a id="bcLink" style="text-decoration: none" title="BC Formula" href="#" onclick="modalTriggerBig('bc');return false;">Betweenness centrality (BC)</a></li>
+        <li><a id="snLink" style="text-decoration: none" title="SN Formula" href="#" onclick="modalTriggerBig('sn');return false;">Shared neighbors (SN)</a></li>
+        <li><a id="ispLink" style="text-decoration: none" title="ISP Formula" href="#" onclick="modalTrigger('isp');return false;">Inverse shortest path (ISP)</a></li>
+      </ul>
+    </p>
+
+    <p>
+      Each of these functions is adapted to the following formulation:<br>
+      <img src="images/Sj_formula.png" width="200px" align="left"/><br>
+      where <span class="formula">C</span> refers to the seed set, <span class="formula">C'</span> refers to the complementary set of proteins, and <span class="formula">S</span><sub><span class="formula">j</span></sub> is the metric connectivity score. <span class="formula">M</span><sub><span class="formula">ij</span></sub> represents the pairwise connectivity between protein <span class="formula">j</span> and protein <span class="formula">i</span>. If <span class="formula">M</span><sub><span class="formula">ij</span></sub> is higher for seeds than non-seeds, then <span class="formula">S</span><sub><span class="formula">j</span></sub> will be positive, and the protein is more connected to the seeds than the rest of the network.
+      <br><br>
+      Proteins receiving high connectivity scores thus constitute a subnetwork of the global interactome, which we call a <b>neighborhood</b>. We then assign drugs the connectivity score of their most highly connected target.
+    </p>
+    <h3>Citation</h3>
+    <p>
+      We created and validated MADSS in <a href="http://onlinelibrary.wiley.com/doi/10.1002/cpt.2/abstract">Lorberbaum, et al., Systems Pharmacology Augments Drug Safety Surveillance. <i>Clinical Pharmacology &amp; Therapeutics</i> (2015)</a> using four clinically relevant adverse events (AEs). We created a model for each of these AEs by training a random forest classifier using the drug connectivity scores as features and a gold standard from a <a href="http://onlinelibrary.wiley.com/doi/10.1038/psp.2013.52/abstract">Medication-wide association study</a> as training labels.
+    </p>
+
+    <p>
+      Adverse event neighborhood visualizations are available for <a href="images/AE_neighborhood_MI.pdf">acute myocardial infarction</a>, <a href="images/AE_neighborhood_Gastro.pdf">upper gastrointestinal bleeding</a>, <a href="images/AE_neighborhood_Liver.pdf">acute liver failure</a>, and <a href="images/AE_neighborhood_Kidney.pdf">acute kidney failure</a>.
+    </p>
+  </div>
+</body>
+</html>
