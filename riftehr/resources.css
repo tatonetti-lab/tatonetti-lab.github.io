@@ -1,0 +1,96 @@
+.resource {
+	  width: 350px;
+	  padding: 5px;
+	  border: 1px solid #D1D0CE;
+	  background-color: #E5E4E2;
+	  float: left;
+	  margin: 20px 10px;
+}
+
+.resource p.description {
+	  min-height: 80px;
+}
+
+.resource img.icon {
+	  float: left;
+	  height: 25px;
+}
+
+.resource img.badge {
+	  float: right;
+	  height: 15px;
+}
+
+.resource .load {
+	  float: right;
+}
+.resource .load img {
+	  height: 25px;
+}
+
+.resource h2 {
+	  margin: 0px;
+	  padding: 0 0 10px 30px;
+}
+.resource h2 a {
+	  text-decoration: none;
+	  color: black;
+}
+.resource h2 a:hover {
+	  text-decoration: underline;
+}
+.resource h2 span.pr {
+	  font-size: 0.6em;
+	  font-style: italic;
+}
+
+.resource p {
+	  padding: 3px;
+	  margin: 0px;
+}
+
+.resource .contents {
+	  padding-top: 10px;
+}
+.resource .contents div {
+	  padding: 0px 0px 10px 35px;
+	  margin-top: 8px;
+	  height: 30px;
+	  vertical-align: middle;
+}
+.resource .contents .what {
+	  background-image:url('images/resource-what.png');
+	  background-size: 30px;
+	  background-repeat: no-repeat;
+}
+.resource .contents .data {
+	  background-image:url('images/resource-database.png');  
+	  background-size: 31px;
+	  background-repeat: no-repeat;
+}
+.resource .contents .code {
+	  background-image: url('images/resource-code.png');
+	  background-size: 25px;
+	  background-repeat: no-repeat;
+}
+.resource .contents .pub {
+	  background-image: url('images/resource-publication.png');
+	  background-size: 26px;
+	  background-repeat: no-repeat;
+}
+.resource .contents .date {
+	  background-image: url('images/resource-date.png');
+	  background-size: 30px;
+	  background-repeat: no-repeat;
+}
+.resource .contents .algo {
+	  background-image: url('images/resource-algo.png');
+	  background-size: 30px;
+	  background-repeat: no-repeat;
+}
+
+#old-page {
+	  clear: both;
+	  padding-top: 40px;
+}
+

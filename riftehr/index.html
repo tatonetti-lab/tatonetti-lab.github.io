@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>RIFTEHR - Relationship Inference from the Electronic Health Records - Tatonetti Lab</title>
+  <link type="text/css" rel="stylesheet" media="all" href="fonts.css"/>
+  <link type="text/css" rel="stylesheet" media="all" href="main.css"/>
+  <link type="text/css" rel="stylesheet" media="print" href="print.css"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <style>
+  .h2o-est {
+    white-space: nowrap;
+  }
+
+
+html, body
+{
+  width: 100%;
+  height: 100%;
+  
+  margin: 0;
+  padding: 0;
+
+}
+
+
+#page {
+  height:100%;
+
+}
+
+#root {
+  /*height:100%;*/
+  flex: 1;
+}
+
+#header {
+  flex: 0 1 auto;
+  /* The above is shorthand for:
+  flex-grow: 0,
+  flex-shrink: 1,
+  flex-basis: auto
+  */
+
+}
+#header-content {
+  position:relative;
+  padding-top:40px;
+  height:120px;
+  vertical-align: bottom;
+}
+
+
+#content {
+  height:100%;
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  
+  justify-content: flex-start; /* align items in Main Axis */
+  align-items: stretch; /* align items in Cross Axis */
+  align-content: stretch; /* Extra space in Cross Axis */
+          
+  background: rgba(255, 255, 255, .1);
+  /*flex: 1;*/
+}
+
+header, section, footer {
+  max-width:850px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+#riftehr-app {
+  /*height:100%;
+  flex: 1;*/
+  height: 450px;
+  overflow: auto;
+      
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+  background: rgba(255, 255, 255, .1);
+    /* flex: 1; */
+}
+#virtualized-parent {
+  /*height:100%;
+  flex: 1;*/
+}
+
+#virtualized-parent 
+{
+  flex:1;
+
+}
+
+#bar {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+}
+
+
+  </style>
+</head>
+<body>
+
+    
+    
+    
+    
+    <div id="content">
+
+    <div id="header">
+      <div id="header-content">
+          <div>
+              <h1>RIFTEHR</h1>
+              <h3>Relationship Inference from the Electronic Health Records</h3>
+          </div>
+      </div>
+    </div>
+
+<div id="bar"></div>
+    
+      <section>
+      <p><b>Estimate of disease heritability using 7.4 million familial relationships inferred from electronic health records</b><br/>
+      Fernanda Polubriaginof, Rami Vanguri, Kayla Quinnies, Gillian Belbin, Alexandre Yahi, Hojjat Salmasian, Tal Lorberbaum, Victor Nwankwo, Li Li, Mark Shervey, Patricia Glowe, Iuliana Ionita-Laza, Mary Simmerling, George Hripcsak, Suzanne Bakken, David Goldstein, Krzysztof Kiryluk, Eimear Kenny, Joel Dudley, David K. Vawdrey, Nicholas P. Tatonetti</p>
+      </section>
+      
+      <section>
+      <h2>Supporting Materials</h2>
+      
+      <p>
+  <b>RIFTEHR</b> (Relationship Inference from the Electronic Health Records) is a tool for mining familial relationships using the emergency contact data provided by patients during their inpatient stays. The inferred relationships accurately predict genetic relatendess with 87% to 99% positive predictive value, depending on the relationship type. The preliminary manuscript describing the method, its validation, and the use of EHR-inferred relationships to estimate disease heritability is available <a target="_blank" href="http://biorxiv.org/content/early/2016/07/28/066068">pre-print</a> for the scientific community. The following is a list of code and data referenced by the manuscript. We endeavor to make as much of the data publicly available as possible while still protecting patient privacy.
+      </p>
+      <p>
+  Heritability measures what proportion of disease can be attributed to genetics.  <i>Observational Heritability</i> is an estimate of the heritability using observational resources where ascertainment is uncontrolled. We introduce a methodology, called <b>SOLARStrap</b>, to estimate Observational Heritability in the preliminary manuscript referenced above. Source code and data to run <a target="_blank" href="https://github.com/tatonetti-lab/riftehr">RIFTEHR</a> and <a target="_blank" href="https://github.com/tatonetti-lab/h2o">SOLARStrap</a> are available on GitHub. <a href="http://riftehr.tatonettilab.org/h2o_data.tar.gz">Data files for notebooks and the rhinitis example</a> are also available.
+      </p>
+      <p>
+  <b>Browse</b> the high confidence observational heritability estimates. Lower confidence estimates are available at <a href="https://data.mendeley.com/datasets/j8239bz4n5/draft?a=eb3a81f4-2382-4aa7-96d7-46737a9085c5">Mendeley Data</a> and additional files are in the <a href="http://riftehr.tatonettilab.org/ReleaseData/">Supplemental Data Files</a>.
+      </p>
+      </section>
+      
+      <section>
+	<h2>Clinical Data Release</h2>
+	<p>
+	  Clinical and familial relationships data from the Columbia and Cornell will be made available at this URL at the time of publication: <a href="https://data.mendeley.com/datasets/j8239bz4n5/draft?a=eb3a81f4-2382-4aa7-96d7-46737a9085c5">Mendeley Data</a> and additionally at <a href="http://riftehr.tatonettilab.org/ReleaseData/">Release Data</a>. The data will be prepared according to "Section 4. Preparation of clinical data for release" in the supplemental materials. These data will cover approximately 500 traits.
+	</p>
+	<p>
+	  Download the <a href="http://riftehr.tatonettilab.org/ReleaseData/h2o/20160729/Polubriaginof_500traits_obsherit.zip">500 traits observational heritability estimates</a> from the table below.
+	</p>
+      </section>
+
+      <div id="expand-shrink" style="margin-top:10px; text-align: right;">
+  <a href="javascript:void(0)" onclick="console.log('hi!')" class="expand" style="text-align:right;"><img src="images/expand.svg" alt="Expand" height="15" width="15"></a>
+  <a href="javascript:void(0)" onclick="console.log('shrink!')" class="shrink" style="text-align:right;display:none;"><img src="images/shrink.svg" alt="Shrink" height="15" width="15"></a>
+      </div>
+
+      
+      <div id='root'></div>
+      
+      <section>
+      <h3>Updates and News</h3>
+      <p>
+	<b>May 17th, 2018</b><br/>
+	<ul>
+	  <li>Published online at Cell</li>
+	  <li>De-identified data made available on the site</li>
+	</ul>
+      <p>
+        <b>April 20th, 2017</b><br/>
+        <ul>
+        <li>Added web app to browse new high confidence heritability estimates (see above).</li>
+        </ul>
+      </p>
+
+      <p>
+        <b>July 29th, 2016</b><br/>
+        <ul>
+          <li>Added data browsers for the high confidence heritability estimates: <a href="http://riftehr.tatonettilab.org/columbia_pass1pass2_20160728.html">Columbia (N=216)</a> and 
+        <a href="http://riftehr.tatonettilab.org/cornell_pass1pass2_20160728.html">Cornell (N=160)</a>.</li>
+          <li>Added all heritability runs to release data set.</li>
+        </ul>
+      </p>
+
+      <p>
+        <b>July 27th, 2016</b><br/>
+        Supporting website created and pre-print manuscript deposited at bioRxiv at <a href="http://dx.doi.org/10.1101/066068">http://dx.doi.org/10.1101/066068</a>.
+      </p>
+      </section>
+
+      <footer>
+    <div id="footer">
+      <img src="http://tatonettilab.org/cumc.png" width="250px"/>
+    </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-56795550-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+  <script>
+    var winHeight = $(window).height();
+
+    $('.expand').click(function() {
+      // $('#content').css({
+      //   'display':'flexbox';
+      // })
+      $('#content > p, #content > h2, #content > ul, #content > h3, #footer, section').hide();
+      $('#root').css({
+        'width': '90vw',
+        'margin-left': 'calc(-45vw + 50%)',
+        'height':'calc(100% - 160px)'
+      });
+      $('#expand-shrink').css({
+        'width': '90vw',
+        'margin-left': 'calc(-45vw + 50%)'
+      });
+      $('#riftehr-app').css({
+        'height': '100%'
+      });
+
+      $('.expand').hide();
+      $('.shrink').show();
+      
+    });
+
+    $('.shrink').click(function() {
+      $('#content > p, #content > h2, #content > ul, #content > h3, #footer, section').show();
+      $('#root').css({
+        'width': '100%',
+        'margin-left': 'initial',
+        'height': '547px'
+      });
+      $('#expand-shrink').css({
+        'width': '100%',
+        'margin-left': 'initial'
+      });
+      $('#riftehr-app').css({
+        'height': '450px'
+      });
+
+      $('.shrink').hide();
+      $('.expand').show();
+      
+    });
+  </script>
+  <script src="bundle.js"></script>
+  <script src="/static/bundle.js"></script>
+</body>
+</html>

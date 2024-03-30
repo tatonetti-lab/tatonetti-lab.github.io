@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>RIFTEHR - Relationship Inference from the Electronic Health Records - Tatonetti Lab</title>
+  <link type="text/css" rel="stylesheet" media="all" href="fonts.css"/>
+  <link type="text/css" rel="stylesheet" media="all" href="main.css"/>
+  <link type="text/css" rel="stylesheet" media="print" href="print.css"/>
+</head>
+<body>
+  <div id="page">
+    
+    <div id="header">
+      <div id="header-content">
+          <div>
+              <h1>RIFTEHR</h1>
+              <h3>Relationship Inference from the Electronic Health Records</h3>
+          </div>
+      </div>
+    </div>
+    
+    <div id="bar"></div>
+    
+    <div id="content">
+      <p><b>Estimate of disease heritability using 4.7 million familial relationships inferred from electronic health records</b><br/>
+      Fernanda Polubriaginof, Kayla Quinnies, Rami Vanguri, Alexandre Yahi, Mary Simmerling, Iuliana Ionita-Laza, Hojjat Salmasian, Suzanne Bakken, George Hripcsak, Krzysztof Kiryluk, David Goldstein, David K. Vawdrey, Nicholas P. Tatonetti</p>
+      
+      <h2>Supporting Materials</h2>
+      
+      <p>
+	<b>RIFTEHR</b> (Relationship Inference from the Electronic Health Records) is a tool for mining familial relationships using the emergency contact data provided by patients during their inpatient stays. The inferred relationships accurately predict genetic relatendess with 87% to 99% positive predictive value, depending on the relationship type. The preliminary manuscript describing the method, its validation, and the use of EHR-inferred relationships to estimate disease heritability is available pre-print for the scientific community. The following is a list of code and data referenced by the manuscript. We endeavor to make as much of the data publicly available as possible while still protecting patient privacy.
+      </p>
+      <p>
+	Heritability measures what proportion of disease can be attributed to genetics.  <i>Observational Heritability</i> is a estimate of the heritability using observational resources where ascertainment is uncontrolled. We introduce a methodology, called <b>SOLARStrap</b>, to estimate Observational Heritability in the preliminary manuscript referenced above. Code and data to run these estimates is available in the following github repository.
+      </p>
+      <p>
+	<b>Browse</b> the high confidence observational heritability estimates from 
+	<a href="http://riftehr.tatonettilab.org/columbia_pass1pass2_20160728.html">Columbia (N=216)</a> and 
+	<a href="http://riftehr.tatonettilab.org/cornell_pass1pass2_20160728.html">Cornell (N=160)</a> online. Lower confidence estimates are available in the Supplemental Data Files below.
+      </p>
+      <p>
+	<ul>
+          <li><a href="http://riftehr.tatonettilab.org/ReleaseData/">Supplemental Data Files</a></li>
+          <li><a href="https://github.com/ntatonetti/riftehr">RIFTEHR Source Code</a></li>
+	  <li><a href="https://github.com/ntatonetti/h2o">SOLARStrap Source Code</a></li>
+	  <li><a href="http://riftehr.tatonettilab.org/h2o_data.tar.gz">Data files for notebooks and rhinitis example</a></li>
+        </ul>
+      </p>
+    
+      <h3>Updates and News</h3>
+      <p>
+	<b>July 29th, 2016</b><br/>
+	<ul>
+	  <li>Added data browsers for the high confidence heritability estimates.</li>
+	  <li>Added all heritability runs to release data set.</li>
+	</ul>
+      </p>
+      <p>
+	<b>July 27th, 2016</b><br/>
+	Supporting website created and pre-print manuscript deposited at bioRxiv at <a href="http://dx.doi.org/10.1101/066068">http://dx.doi.org/10.1101/066068</a>.
+      </p>
+
+    <div id="footer">
+      <img src="http://tatonettilab.org/cumc.png" width="250px"/>
+    </div>
+    
+  </div>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-56795550-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+</body>
+</html>
