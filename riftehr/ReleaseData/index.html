@@ -1,25 +1,91 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-  <title>S3 Bucket Listing Generator</title>
-</head>
-<body>
-  <div id="navigation"></div>
-  <div id="listing"></div>
+    <head>
+        <title>js-bucket-listing</title>
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        />
+        <style>
+            body {
+                margin: 30px 100px auto 100px;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="config.js"></script>
+        <script>
+            var bucketName = config.bucketName;
+            var bucketRegion = config.bucketRegion;
 
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script type="text/javascript">
-  var S3BL_IGNORE_PATH = true;
-  var BUCKET_NAME = 'tatonettilab-resources';
-  var BUCKET_URL = 'https://tatonettilab-resources.s3.us-west-1.amazonaws.com/';
-  var S3B_ROOT_DIR = 'riftehr/';
-  var S3B_SORT = 'DEFAULT';
-  var S3B_STAT_DIRS = false;
-  var EXCLUDE_FILE = 'index.html';  // change to array to exclude multiple files, regexp also supported e.g. /^(.*\/)?index.html$/ to exclude all index.html
-  var AUTO_TITLE = true;
-  var S3_REGION = 'us-west-1'; // for us-east-1
-</script>
-<script type="text/javascript" src="https://rufuspollock.github.io/s3-bucket-listing/list.js"></script>
+            function listObjects() {
+                var url = `https://${bucketName}.s3.${bucketRegion}.amazonaws.com/`;
 
-</body>
+                fetch(url)
+                    .then((response) => response.text())
+                    .then((data) => {
+                        var parser = new DOMParser();
+                        var xmlDoc = parser.parseFromString(data, "text/xml");
+                        var contents = xmlDoc.getElementsByTagName("Contents");
+                        var tableBody = document.getElementById("tableBody");
+
+                        for (var i = 0; i < contents.length; i++) {
+                            bodyRow = document.createElement("tr");
+
+                            var key =
+                                contents[i].getElementsByTagName("Key")[0]
+                                    .textContent;
+                            var size =
+                                contents[i].getElementsByTagName("Size")[0]
+                                    .textContent;
+                            var lastModified =
+                                contents[i].getElementsByTagName(
+                                    "LastModified",
+                                )[0].textContent;
+
+                            var link = document.createElement("a");
+                            link.href = `https:/${bucketName}.s3.amazonaws.com/${key}`;
+                            link.textContent = `${key}`;
+
+                            filenameCell = document.createElement("th");
+                            filenameCell.setAttribute("scope", "row");
+                            filenameCell.appendChild(link);
+
+                            modifiedCell = document.createElement("td");
+                            modifiedCell.textContent = `${lastModified}`;
+
+                            sizeCell = document.createElement("td");
+                            sizeCell.classList.add("text-end");
+                            sizeCell.textContent = `${size}`;
+
+                            bodyRow.appendChild(filenameCell);
+                            bodyRow.appendChild(modifiedCell);
+                            bodyRow.appendChild(sizeCell);
+
+                            tableBody.appendChild(bodyRow);
+                        }
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
+            }
+        </script>
+    </head>
+    <body onload="listObjects()">
+        <h3>js-bucket-listing</h3>
+        <table
+            id="objectTable"
+            class="table-striped table-hover table-bordered table"
+        >
+            <thead>
+                <th scope="col">Filename/Path</th>
+                <th scope="col">Last Modified</th>
+                <th scope="col" class="text-end">Size (bytes)</th>
+            </thead>
+            <tbody id="tableBody">
+                <!-- content will be added row by row here using the listObjects() function above -->
+            </tbody>
+        </table>
+    </body>
 </html>
