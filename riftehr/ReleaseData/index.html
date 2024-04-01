@@ -2,90 +2,13 @@
 <html>
     <head>
         <title>js-bucket-listing</title>
-        <link
-            rel="stylesheet"
-            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        />
-        <style>
-            body {
-                margin: 30px 100px auto 100px;
-            }
-        </style>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <script src="config.js"></script>
-        <script>
-            var bucketName = config.bucketName;
-            var bucketRegion = config.bucketRegion;
-
-            function listObjects() {
-                var url = `https://${bucketName}.s3.${bucketRegion}.amazonaws.com/`;
-
-                fetch(url)
-                    .then((response) => response.text())
-                    .then((data) => {
-                        var parser = new DOMParser();
-                        var xmlDoc = parser.parseFromString(data, "text/xml");
-                        var contents = xmlDoc.getElementsByTagName("Contents");
-                        var tableBody = document.getElementById("tableBody");
-
-                        for (var i = 0; i < contents.length; i++) {
-                            bodyRow = document.createElement("tr");
-
-                            var key =
-                                contents[i].getElementsByTagName("Key")[0]
-                                    .textContent;
-                            var size =
-                                contents[i].getElementsByTagName("Size")[0]
-                                    .textContent;
-                            var lastModified =
-                                contents[i].getElementsByTagName(
-                                    "LastModified",
-                                )[0].textContent;
-
-                            var link = document.createElement("a");
-                            link.href = `https:/${bucketName}.s3.amazonaws.com/${key}`;
-                            link.textContent = `${key}`;
-
-                            filenameCell = document.createElement("th");
-                            filenameCell.setAttribute("scope", "row");
-                            filenameCell.appendChild(link);
-
-                            modifiedCell = document.createElement("td");
-                            modifiedCell.textContent = `${lastModified}`;
-
-                            sizeCell = document.createElement("td");
-                            sizeCell.classList.add("text-end");
-                            sizeCell.textContent = `${size}`;
-
-                            bodyRow.appendChild(filenameCell);
-                            bodyRow.appendChild(modifiedCell);
-                            bodyRow.appendChild(sizeCell);
-
-                            tableBody.appendChild(bodyRow);
-                        }
-                    })
-                    .catch((error) => {
-                        console.log(error);
-                    });
-            }
-        </script>
+        <meta http-equiv="refresh" content="0; URL=http://tatonettilab-resources.s3-website-us-west-1.amazonaws.com/?p=riftehr/" />
     </head>
     <body onload="listObjects()">
-        <h3>js-bucket-listing</h3>
-        <table
-            id="objectTable"
-            class="table-striped table-hover table-bordered table"
-        >
-            <thead>
-                <th scope="col">Filename/Path</th>
-                <th scope="col">Last Modified</th>
-                <th scope="col" class="text-end">Size (bytes)</th>
-            </thead>
-            <tbody id="tableBody">
-                <!-- content will be added row by row here using the listObjects() function above -->
-            </tbody>
-        </table>
+        <h3>Redirecting to RIFTEHR Resource Data</h3>
+        <p>
+            Please wait a moment while  you are redirected. 
+            If you are not redirected click <a href="http://tatonettilab-resources.s3-website-us-west-1.amazonaws.com/?p=riftehr/">herehere</a>. 
+        </p>
     </body>
 </html>
