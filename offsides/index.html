@@ -183,17 +183,7 @@
 
     <script type='text/javascript' src='include/navigation.js' id='slightly-navigation-js'></script>
     <script type='text/javascript' src='include/skip-link-focus-fix.js' id='slightly-skip-link-focus-fix-js'></script>
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
 
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
 </body>
 
 </html>
