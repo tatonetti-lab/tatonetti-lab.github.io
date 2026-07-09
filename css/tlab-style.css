@@ -101,6 +101,9 @@ img.emoji {
 .current-members {
 	clear: both;
 }
+.current-members > .student:nth-child(odd) {
+	clear: left;
+}
 
 .former-members img {
 	display: none;
